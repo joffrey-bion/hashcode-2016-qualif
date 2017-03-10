@@ -1,0 +1,31 @@
+group 'org.ohutouch'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    maven {
+        url  "http://dl.bintray.com/joffrey-bion/maven"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.hildan.hashcode:hashcode-input-parser:0.0.1'
+    testCompile 'junit:junit:4.11'
+}
+
+mainClassName = 'org.ohutouch.hashcode.Main'
+
+task srcZip(type: Zip) {
+    classifier = 'src'
+    from sourceSets*.allSource
+}
+//
+//task go {
+//    commandLine 'java', '-jar', 'build/libs/hashcode-1.0-SNAPSHOT.jar'
+//}
